@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-12 text-center">
+      <h1 class="h1-responsive">TODO inTasks</h1>
+    </div>
+  </div>
+  <div class="row mt-5 ">
+    <div class="col-md-3 offset-md-2 left-column mb-1">
+      <ul class="list-group" id="category_list">
+        <%= render 'users/category_list' %>
+      </ul>
+    </div>
+    <div class="col-md-5 list mb-1 d-flex flex-column align-items-stretch">
+      <div class="px-3 py-3">
+        <div class="col-md-12">
+          <h4 id="selected_category"><%= @category&.title || t('all') %></h4>
+        </div>
+      </div>
+      <div class="px-4 mt-3">
+        <div class="form-group full-width <%= 'hidden' unless @tasks.present? %>">
+          <div class="full-width" id="task_list">
+            <%= render 'task_list' %>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 mt-auto">
+        <div class="md-form col-12">
+          <%= form_for Task.new, remote: true, html: { id: 'new_task_form' } do |f| %>
+            <%= f.hidden_field :category_id, value: params[:category_id] %>
+            <div class="row d-flex align-items-center">
+              <a class="prefix submitter col-2" data-submit="#new_task_form">
+                <i class="fas fa-plus prefix"></i>
+              </a>
+              <%= f.text_field :title, placeholder: t('add_new_task'), class: 'form-control col-10', id: 'task_title' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% if user_signed_in? %>
+  <%= link_to(t('logout'), destroy_user_session_path, class: 'btn btn-warning m-4', method: :delete) %>
+  <%= link_to(t('edit_profile'), edit_user_registration_path, class: 'btn btn-info m-4') %>
+<% end %>

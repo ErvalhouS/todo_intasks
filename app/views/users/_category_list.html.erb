@@ -1,0 +1,28 @@
+<li class="category-li list-group-item d-flex justify-content-between align-items-center" id="category_all">
+  <%= t('all') %>
+  <span class="badge badge-secondary badge-pill">
+    <%= current_user.tasks_count %>
+  </span>
+</li>
+<% @categories.each do |category| %>
+  <li class="category-li list-group-item d-flex justify-content-between align-items-center" id="category_<%= category.id %>" data-id="<%= category.id %>">
+    <%= category.title %>
+    <span class="badge badge-secondary badge-pill">
+      <%= category.tasks_count %>
+    </span>
+  </li>
+<% end %>
+<li class="list-group-item d-flex justify-content-between align-items-center">
+  <%= form_for current_user, remote: true, html: { id: "new_category_form", class: ' col-10 p-0' } do |n| %>
+    <%= n.fields_for :categories, current_user.categories.build do |i| %>
+      <%= render 'users/categories_fields', f: i %>
+    <% end %>
+  <% end %>
+  <div class="col-2">
+    <span class="badge badge-primary badge-pill">
+      <a class="prefix submitter" data-submit="#new_category_form">
+        <i class="fas fa-plus" aria-hidden="true"></i>
+      </a>
+    </span>
+  </div>
+</li>

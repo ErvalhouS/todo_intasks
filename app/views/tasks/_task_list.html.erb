@@ -1,0 +1,27 @@
+<% @tasks.each do |task| %>
+  <div class="row d-flex align-items-center">
+    <a href="javascript:;" class="col-1 rotate-90 font-weight-bold" data-toggle="collapse" data-target="#description_<%= task.id %>" aria-expanded="false">&hellip;</a>
+    <%= form_for task, remote: true, html: { class: 'col-2', id: "task_form_#{task.id}" } do |f| %>
+      <%= f.check_box :completed, { id: "check_#{task.id}", class: "form-control col-12 submitter", checked: task.completed, 'data-submit': "#task_form_#{task.id}" }, true %>
+    <% end %>
+    <label for="check_<%= task.id %>" class="task-name <%= 'strikethrough' if task.completed %> col-7 mb-0">
+      <% if task.expired? %>
+        <i class="fas fa-exclamation text-danger"></i>
+      <% end %>
+      <%= task.title %>
+    </label>
+    <%= link_to task, method: :delete, style: "float: right;", class: "close remove-task col-1", 'aria-label': "Close", remote: true, 'data-confirm': t('are_you_sure') do %>
+      <span aria-hidden="true" >&times;</span>
+    <% end %>
+    <div id="description_<%= task.id %>" class="collapse col-12"  data-parent="#task_list">
+      <div class="card-body">
+        <%= form_for task, remote: true, html: { class: 'col-12', id: "description_form_#{task.id}" } do |f| %>
+          <label for="description_field<%= task.id %>"><%= t('description') %></label>
+          <%= f.text_field :description, class: "form-control keyup-submitter col-12", 'data-submit': "#description_form_#{task.id}" %>
+          <label for="due_at_field<%= task.id %>" class="<%= 'text-danger' if task.expired? %>"><%= t('due_at') %></label>
+          <%= f.date_field :due_at, class: "form-control change-submitter col-12 #{'text-danger' if task.expired?}", 'data-submit': "#description_form_#{task.id}"  %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,5 @@
+$("#task_list").html("<%=j render "task_list" %>");
+$("#selected_category").html("<%=j @category&.title || t('all') %>");
+$("#task_category_id").val("<%= @category&.id %>");
+$("#category_list").html("<%=j render "category_list" %>");
+intialize();

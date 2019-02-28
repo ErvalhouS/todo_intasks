@@ -1,0 +1,44 @@
+
+<div class="overlay"></div>
+<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+  <source src="<%= asset_path "bg.mp4" %>" type="video/mp4">
+</video>
+
+<div class="masthead">
+  <div class="masthead-bg"></div>
+  <div class="container h-100">
+    <div class="row h-100">
+      <div class="col-12 my-auto">
+        <div class="masthead-content text-white py-5 py-md-0">
+          <h1 class="mb-3">TODO inTasks</h1>
+          <p class="mb-5"><%= t('productivity_is_life') %></p>
+          <div class="input-group input-group-newsletter">
+            <form action="/tasks">
+              <button class="btn btn-secondary" type="submit"><%= t('organize_your_life') %></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="social-icons">
+  <ul class="list-unstyled text-center mb-0">
+    <li class="list-unstyled-item">
+      <a href="#">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li class="list-unstyled-item">
+      <a href="#">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li class="list-unstyled-item">
+      <a href="#">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </li>
+  </ul>
+</div>

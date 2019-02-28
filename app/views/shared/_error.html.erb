@@ -1,0 +1,10 @@
+<% errors.full_messages.each do |error| %>
+  <div class="alert alert-error d-flex align-items-center">
+    <a href="#" data-dismiss="alert" class="close">×</a>
+    <ul class="mb-0">
+      <li>
+        <%= error %>
+      </li>
+    </ul>
+  </div>
+<% end %>
