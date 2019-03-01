@@ -1,33 +1,36 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `t`:
-#
-#     t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
+---
 en:
-  hello: "Hello world"
+  active_admin:
+    dashboard: Dashboard
+  add_new_category: Add new category
+  add_new_task: Add new task
+  all: All
+  are_you_sure: Are you sure?
+  back: Back
+  cancel_account: Cancel Account
+  change_my_password: Change my Password
+  change_your_password: Change your Password
+  confirm_changes_in_profile: Confirm changes in profile
+  description: Description
+  due_at: Due at
+  edit: Edit
+  edit_profile: Edit profile
+  errors:
+    messages:
+      not_saved: Not saved
+  forgot_password: Forgot password?
+  hello: Hello world
+  leave_blank: Leave blank
+  login: Login
+  logout: Logout
+  organize_your_life: Organize your life
+  productivity_is_life: Sometimes we lose track of what we need to do. TODO inTasks is the right tool to keep track of what and when you should do stuff. Productivity is life.
+  resend_confirmation_instructions: Resend confirmation instructions
+  resend_unlock_instructions: Resend unlock instructions
+  send_reset_instructions: Send reset instructions
+  sign_up: Sign up
+  task:
+    expired_creation: You can't use a due time before now
+  unhappy: Unhappy
+  update: Update
+  waiting_email_confirmation: Waiting email confirmation
