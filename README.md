@@ -20,13 +20,11 @@ H4ckUrT@sk!
 You can download this application source code by [cloning this repository into your machine](https://help.github.com/en/articles/cloning-a-repository).
 If you think you can take this application even further you need to have Rails `~> 5.2` installed. If you are unsure how to do that [checkout the Rails' documentation](https://guides.rubyonrails.org/v5.2/getting_started.html). The app has some requirements, which are:
   - [PostgreSQL](http://www.postgresqltutorial.com/install-postgresql/)
-  - [Redis](https://redis.io/topics/quickstart)
-  - [Imagemagick](http://blog.gregzaal.com/install-imagemagick/)
   - Your Brain(Hopefully you won't need to install this)
 
 Beyond that, before running anything locally you need to setup the database and install the required gems by running:
 ```shell
-$ bundle install & rails db:setup
+$ bundle install & rails db:create & rails db:migrate & rails db:seed
 ```
 
 To make sure something your code changes hasn't breaked most of the stuff in the application, run:
@@ -37,11 +35,6 @@ $ bundle exec rspec
 After you have done your incredible job and you think it's time to get the application running in a browser, execute it:
 ```shell
 $ rails server
-```
-
-You will notice somethings done in the application, like file uploads, are not being fully proccessed in real-time. This is because there is the need to run an asynchronous job proccessing software called [Sidekiq](https://github.com/mperham/sidekiq). If you have done everything correctly so far, just run it in another terminal window:
-```shell
-$ bundle exec sidekiq
 ```
 -------
 ###### Move fast ~~and break things~~ with stable infra. Take pride on fixing things.
